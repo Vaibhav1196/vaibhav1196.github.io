@@ -6,13 +6,25 @@
 -->
 <html>
 	<head>
-		<title>Generic Page - Massively by HTML5 UP</title>
+		<title>Backpropogation</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
+
+
+
+		
+		.TextWrapLeft
+        {
+			clear: left.
+			float: left;
+			margin: 10px;
+		}
+
+
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -34,10 +46,39 @@
 									
 								</header>
 								<div>
-									<img src="images/post1/The-four-horsemen.png"  ALIGN="left" width="400" height="400" style="border:5px solid black"/>
-								</div>
-								<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur sapien risus, commodo eget turpis at, elementum convallis enim turpis, lorem ipsum dolor sit amet nullam.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus. Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum.</p>
+									<img style="margin: 5px 20px 0 0;" ALIGN="left" src="images/post1/The-four-horsemen.png"  width="400" height="400"  style="border:5px solid black"/>
+								</div> 
+
+								<p  style="color:black;font-size:18px;"> 
+									
+									The structure of the equations shown in the figure (for example: using the Hadamard product instead of Matrix multiplication)
+									is inspired from the book "Neural Networks and Deeplearning" by "Michael Nielsen". 
+									This book is highly recommended if one is looking for a mathematically intensive approach to the topic. In this article we will not dive into the 
+									backpropogation algorithm itself but try and understand the relevence of these equations and how certain terms appear in them. This post can be used as a 
+									supplement while understanding backpropogation or like a cheatsheet if one has understood the mathematical view point of this algorithm.
+									Before going into the discussion of each equation we will quickly establish what each term in the set of four equations mean considering a pictorial representation of DNN. 
+								</p>
+
+
+
+								<div>
+									<img style="margin: 20px 5px 0 0;" ALIGN="right"  src="images/post1/DNN.png"  width="500" height="375"  style="border:5px solid black"/>
+								</div> 
+								
+								<p  style="color:black;font-size:18px;x"> 
+									
+									The figure on the right having the configuration of 3-4-2 DNN structure depicts the various terms in the network. <b>"w" is the weight arriving to the corresponding neuron.
+									The weight "w" is moving to the "j<sup>th</sup>" neuron in the "l<sup>th</sup>" layer from the "k<sup>th</sup>" neuron in the "(l-1)<sup>th</sup>" layer The weighted sum at a neuron in layer "l" with bias "b" is represented by "z".
+									 A point to remember here is that the bias "b" is local to a neuron while the weights "w" are not. The activation function is represented by "&sigma;" and the activation function of a neuron is given by "&sigma;(z)".
+									Here the output of the activation is represented by "a" , that is "&sigma;(z) = a".</b>     
+								</p>
+								<p  style="color:black;font-size:18px;"> 
+									
+									The <b>Cost function C</b> is given by the quadratic function as shown in the figure. <b>Here "a<sub>j</sub><sup>L</sup>" is the final prediction at the L th layer and the j<sup>th</sup> neuron.
+									 and y<sub>j</sub> is the ground truth of the input data point. Here an important point to note is that the ground truth is constant thus the cost C is purely a function of "a<sup>L</sup>" , Cost C = C(a<sup>L</sup>)</b>. 
+								</p>
+								
+								
 							</section>
 
 					</div>
