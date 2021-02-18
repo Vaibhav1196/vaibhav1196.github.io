@@ -354,10 +354,57 @@
 								
                                 <h1 class="both" style="color:black;font-size:40px;">3. &nbsp; &part; C/&part; b<sup>l</sup><sub>j</sub> = &delta; <sup>l</sup><sub>j</sub></h1>
 
+                                <p  style="color:black;font-size:18px;"> 
+									
+									This is a pretty straight forward expression. As mentioned earlier , the bias term is local to each neuron in their corresponding
+									layers. So the rate of change of the cost function with respect to the bias is directly linked to the localized error within that neuron.
+									From the previous two equations we have understood on how to compute <b>&delta;</b> for every neuron. We can simply write this equation as:
+
+									<h1 class="lowercase" style="color:black;font-size:30px;text-align:center;"> &part; C/&part; b = &delta;  </h1>
+								</p>
+
+								<p  style="color:black;font-size:18px;"> 
+									
+									It is understood from the above equation that we compute <b>&delta;</b> for the same neuron as the bias <b>'b'</b>.
+								</p>
+
+								<!--************************************************END OF EQUATION THREE***************************************************************-->
+								
+
+
+								<!--************************************************START OF EQUATION FOUR***************************************************************-->
+
+								 
+								<h1 class="both" style="color:black;font-size:40px;">4. &nbsp; &part; C/&part; w<sup>l</sup><sub>jk</sub> = a<sup>l-1</sup><sub>k</sub> &delta;<sup>l</sup><sub>j</sub></h1>
 
 
 
 
+								<p  style="color:black;font-size:18px;"> 
+									
+									
+								Finally this is what we are interested in , that is the rate of change of the cost C with respect to any weight in the network. Looking at the RHS of the equation ; we now 
+								know both the terms to calculate <b>' &part; C/&part; w<sup>l</sup><sub>jk</sub>'</b>. But to have an intuitive understanding of this expression consider figure 8.
+
+								  
+								</p>
+
+								<div>
+									
+									<img  class="center" ALIGN="bottom" alt="Why matrix transpose in backpropogation"  src="images/post1/fourthequation.png" width="400" height="200"  style="border:5px solid black">
+							        <p style="text-align: center;font-size:15px;">Figure 8: Fouth equation pictorial representation</p>
+								    
+								</div> 
+
+
+								<p  style="color:black;font-size:18px;"> 
+									
+								We see that there are 2 neurons interconnected in figure 8 and this can be between any layer. Finally the rate of change of cost function at the output with respect 
+								to the weight that exists between these two neurons is given by the product of the previous activation term <b>a</b> and the error <b>&delta;</b> induced in the neuron towards 
+								which the weight is moving.
+							
+							    </p>
+	
 
 
 							</section>
