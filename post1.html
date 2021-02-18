@@ -30,6 +30,27 @@
         margin-right: auto;
         width: 50%;
         }
+
+		h1.uppercase 
+		{
+        text-transform: uppercase;
+        }
+        h1.lowercase 
+		{
+        text-transform: lowercase;
+        }
+        h1.capitalize 
+		{
+        text-transform: capitalize;
+        }
+		p.newspace 
+		{
+		line-height: 2;
+        margin-top: 0;
+        margin-bottom: 0;
+        text-indent: 22px;
+        } 
+		
 		
 		</style>
 		</head>
@@ -123,7 +144,98 @@
 
 
 								
+									<h1 class="lowercase" style="color:black;font-size:40px;" > 1) &delta;<sup>L</sup> = &nabla;<sub>a</sub>C &odot; &sigma;'(z<sup>L</sup>) </h2>
+									
+									
+									 <p style="color:black;font-size:18px;"> Now that we have set the platform to discuss about the four equations we can start with the first one which is  <b>&delta;<sup>L</sup> = &nabla;<sub>a</sub>C &odot; &sigma;'(z<sup>L</sup>)</b>.
+										but before discussing this matrix format of the equation we will review the same equation but with a touch of calculus. In calculus format the above equation is given as 
+										<b>&delta;<sup>L</sup><sub>j</sub> = &part;C/&part;a<sup>L</sup><sub>j</sub> &sigma;'(z<sup>L</sup><sub>j<sub></b>). But how did we arrive at this expression ?
+										I always prefer the pen and paper approach to enlighten myself during such doubts. We will consider the pictorial representation of a DNN with the required terms as shown in figure 4 along with the pen and paper derivation.
+									</p> 
+							
+
+								<div>
+									
+									<img style="margin: 5px 20px 0 0;" ALIGN="left" src="images/post1/the-first-horsemen.png"  width="350" height="370"  style="border:5px solid black"/>
+										
+								</div> 	
+   
+
+								<p  style="color:black;font-size:18px;"> 
+									
+									Figure 4 on the left shows a pictorial representation of a DNN with <b>N</b> layers. Now we will consider the neuron marked in light pink in layer <b>l</b>. The <b>'z<sub>j</sub><sup>l</sup>'</b> is the weighted sum of the incoming weights to the neuron
+									along with the bias in that neuron. Once we apply the activation <b>&sigma;(z<sub>j</sub><sup>l</sup>)</b> we get the output for that neuron as <b>'a<sub>j</sub><sup>l</sup>'</b>. Here l represents the layer and j the j<sup>th</sup> neuron in the corresponding layer.
+									We had previously established that the error <b>&delta;<sup>l</sup>j<sub><sub></b> induced inside the neuron can be approximated to the rate of change of the final output cost function at the prediction layer with respect top the weighted sum in the neuron of interest. 
+									This is given by the following partial derivative expression <b>&delta;<sup>l</sup>j<sub></sub>=&part;C/&part;z<sub>j</sub><sup>l</sup></b>.
+									Thus by doing this we are trying to see how an error in one neuron is affecting the final prediction as it propogates through the other layers in the forward direction , hence the partial derivative. 
+									Now using these infomation along with a pen and paper we will see why we end up getting <b>&delta;<sup>L</sup><sub>j</sub> = &part;C/&part;a<sup>L</sup><sub>j</sub> &sigma;'(z<sup>L</sup><sub>j<sub></b>).
+								  
+								</p>
+
+								<div>
+									
+									<img  class="center" ALIGN="bottom" alt="How we arrive at first equation"  src="images/post1/why-first-equation.jpg" width="800" height="700"  style="border:5px solid black">
+							        <p style="text-align: center;font-size:15px;">Figure 5: How we arrive at first equation</p>
+								    
+								</div> 
+
+								<p  style="color:black;font-size:18px;"> 
+									
+									As shown in the old school method of pen and paper in the figure 5 we see how we arrive at the corresponding equation. Thus the error <b>&delta;<sup>l</sup>j<sub></sub></b> in the j<sup>th</sup> 
+									nueron of the l<sup>th</sup> is given by the product of: 
+								  
+								</p>
+
+								<p  class="newspace"style="color:black;font-size:18px;"> 
+
+									<b>1)   How fast the the cost 'C' is changing as a function of the activated output 'a'. If the Cost 'C' does not depend on a particular
+										output of a neuron 'j' then its '&delta;<sup>l</sup>j<sub></sub>' will be small.
+									</b>
+								</p>
+
+								<p  style="color:black;font-size:18px;"> 
+									
+									<b>2)   How fast the activation function '&sigma;' is changing with respect to its input weighted sum 'z<sup>l</sup><sub>j</sub>'.
+									</b>
+								</p>
+
+								
+								<p  style="color:black;font-size:18px;"> 
+									
+									From the above two points we have now understood how the error evolves as it propogates through the network and also this way of writing the equation gives a 
+									natural flow in understanding how the various terms in the equation effect the final cost function that we are interested in to minimize. Another important thing 
+									to consider here is that the product between the two terms in the equation is an elementwise operation , thus it is the <b>Hadamard product</b> that is used while 
+									representing the above equation in matrix form.
+								</p>
+
+								<p  style="color:black;font-size:18px;"> 
+									
+									As we have gained enough insight using calculus and why certain terms appear in the equation , we can now write the equation 
+								    <b>&delta;<sub>j</sub><sup>l</sup></b> in matrix form as: 
+								
+									<h1 class="lowercase" style="color:black;font-size:30px;text-align:center;"> &delta;<sup>L</sup> = &nabla;<sub>a</sub>C &odot; &sigma;'(z<sup>L</sup>) </h2>
+
+								</p>
+
+								<p  style="color:black;font-size:18px;"> 
+									
+									Now this equation considers one layer in the DNN and represnts all the errors of that layer in a vector form , hence represented as <b>&delta;<sup>l</sup>;</b> where <b>'l'</b> represents the layer.
+									The &nabla; operator also called the nabla operator is used to represent the partial derivative of <b>'C'</b> with respect to <b>'a'</b> here. <b>&nabla;<sub>a</sub>C</b> is the rate of change of C with respect 
+									to output activations represented as a vector. Finally we have the Hadamard product or the elementwise product <b>&odot;</b> with <b>&sigma;'(z<sup>l</sup>)</b>. 
+									Now considering the cost function as a quadratic function as shown previously ; we can rewrite the expression <b>&nabla;<sub>a</sub>C</b> = <b>(a<sup>L</sup>-y)</b>. 
+									We get this term when we take the partial derivative of the Cost <b>C</b> with respect to <b>a</b> (<b>&part;C/&part;a</b>). Thus we can rewrite the equation for <b>&delta;<sub>j</sub><sup>l</sup></b> as:
+
+									<h1 class="lowercase" style="color:black;font-size:30px;text-align:center;"> &delta;<sup>L</sup> = (a<sup>L</sup>-y) &odot; &sigma;'(z<sup>L</sup>) </h2>
+
+								</p>
+
+
+								
 							</section>
+
+
+							
+						
 
 					</div>
 
