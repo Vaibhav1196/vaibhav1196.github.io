@@ -43,6 +43,10 @@
 		{
         text-transform: capitalize;
         }
+		h1.both
+		{
+		text-transform: none;
+		}
 		p.newspace 
 		{
 		line-height: 2;
@@ -143,6 +147,10 @@
 								</div> 
 
 
+
+
+								     <!--************************************************START OF EQUATION ONE***************************************************************-->
+
 								
 									<h1 class="lowercase" style="color:black;font-size:40px;" > 1) &delta;<sup>L</sup> = &nabla;<sub>a</sub>C &odot; &sigma;'(z<sup>L</sup>) </h2>
 									
@@ -228,6 +236,22 @@
 									<h1 class="lowercase" style="color:black;font-size:30px;text-align:center;"> &delta;<sup>L</sup> = (a<sup>L</sup>-y) &odot; &sigma;'(z<sup>L</sup>) </h2>
 
 								</p>
+
+
+								<p  style="color:black;font-size:18px;"> 
+									
+									An important thing to remember is that , this equation is used to get the error <b>&delta;<sup>L</sup></b> in the forward direction. That is this is the feed forward part 
+									of our algorithm where we see how the error is propogated to the end layer eventually affecting the output prediction. In the next equation we will check out the backpropogation of the error.
+								</p>
+
+
+                                <!--************************************************END OF EQUATION ONE***************************************************************-->
+
+
+							    <!--************************************************START OF EQUATION TWO***************************************************************-->
+							
+							
+								<h1 class="both" style="color:black;font-size:40px;" > 2) &delta;<sup>L</sup> = ((w<sup>l+1</sup>)<sup>T</sup> &delta;<sup>l+1</sup>) &odot; &sigma;'(z<sup>L</sup>) </h2>
 
 
 								
