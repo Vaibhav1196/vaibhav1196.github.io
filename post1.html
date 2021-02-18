@@ -242,7 +242,7 @@
 									
 									An important point to remember is that , this equation is used to get the error <b>&delta;<sup>L</sup></b> in the forward direction. This is the feed forward part 
 									of our algorithm where we see how the error is propogated to the end layer eventually affecting the output prediction. Thus the <b>&delta;<sup>L</sup></b> calculated here is the error in the final layer.
-									 We will use this to calculate the errors <b>&delta;<sup>L-1,2,3..</sup></b> in the rest of the layers using the second equation. In simple terms we can think of it as , calculating 
+									 We will use this to calculate the errors <b>&delta;<sup>L-1,L-2,..2,1</sup></b> in the rest of the layers using the second equation. In simple terms we can think of it as , calculating 
 									 the individual layers error matrix  <b>&delta;<sup>L</sup></b>  in the backward direction.
 								</p>
 
@@ -253,10 +253,113 @@
 							    <!--************************************************START OF EQUATION TWO***************************************************************-->
 							
 							
-								<h1 class="both" style="color:black;font-size:40px;">2. &nbsp; &delta;<sup>L</sup> = ((w<sup>l+1</sup>)<sup>T</sup> &delta;<sup>l+1</sup>) &odot; &sigma;'(z<sup>L</sup>) </h2>
+								<h1 class="both" style="color:black;font-size:40px;">2. &nbsp; &delta;<sup>L</sup> = ((w<sup>l+1</sup>)<sup>T</sup> &delta;<sup>l+1</sup>) &odot; &sigma;'(z<sup>L</sup>) </h1>
 
-
+									<p  style="color:black;font-size:18px;"> 
+									
+										The second equation which is stated above is used to propogate the error from layer l to layer (l-1). This means that equation 1 allowed us to calculate 
+										only the error <b>&delta;<sup>L</sup></b> of the final layer. Equation 1 alone cannot be used to find out the <b>&delta;<sup>L</sup></b> of the 
+										other layers. Thus to find out <b>&delta;<sup>L-1,L-2,..2,1</sup></b> of the other layers we use <b>&delta;<sup>L</sup></b> of the final layer and propogate it 
+										backwards according to the above stated second equation. 
+									</p>
 								
+									<div>
+									
+										<img style="margin: 5px 20px 0 0;" ALIGN="left" src="images/post1/error-backpropogation.png"  width="550" height="450"  style="border:5px solid black"/>
+											
+									</div> 	
+
+
+									
+								<p  style="color:black;font-size:18px;"> 
+									
+									First we will understand the 2nd equation using Figure 6 on the left. As we can see the two red neurons are the neurons in the final layer.
+									<b>&delta;<sub>1</sub><sup>final_layer</sup> and &delta;<sub>2</sub><sup>final_layer</sup></b>  are the errors that we have calculated using equation 1 .
+									Now we have to calculate the errors in the previous layer (l-1) (blue layer in the figure.) Consider the white color neuron in the (l-1)<sup>th</sup> blue 
+									layer. The red lines in the figure show us the connection between the output layer neurons and the white neuron that we have considered in the (l-1)<sup>th</sup> layer.
+									Remeber that the <b>Weights 'W'</b> in the network are unaltered and they remain the same from the previous step of equation 1 . <b>&sigma;(z<sup>L</sup>)</b> is the previously 
+									claculated activation for the white neuron in its corresponding layer.
+
+								  
+								</p>
+
+								<p  style="color:black;font-size:18px;"> 
+									
+									Now that we have established what all the necessary terms mean in the figure 6 we can proceed to understand the back propogation of error.
+									Consider the weighted sum of the error <b>&delta;<sub>1</sub><sup>final_layer</sup> , &delta;<sub>2</sub><sup>final_layer</sup></b> and the 
+									two weights (marked in the red connection between the final layer 'l' and the white neuron in layer '(l-1)'. The weighted sum of the error is given by the following equation:
+									
+									
+									<h1 class="lowercase" style="color:black;font-size:30px;text-align:center;"> w1 * &delta;<sub>1</sub><sup>final_layer</sup> + w2 * &delta;<sub>2</sub><sup>final_layer</sup>  </h1>
+								  
+								</p>
+
+								<p  style="color:black;font-size:18px;"> 
+									
+									From the above equation we see that , we are using both &delta;<sub>1</sub><sup>final_layer</sup> and &delta;<sub>2</sub><sup>final_layer</sup> as inputs 
+									to the previous layer by computing the weighted sum . Now that we have calculated the weighted sum of error for the white neuron we need one more term to help us compute
+									 the <b>&delta;</b> in the white neuron of the blue layer. The term that is going to help us is the activation <b>&sigma;(z)</b> in the white neuron. 
+									 Remember this <b>&sigma;(z)</b> was the input to the feed forward part of the final layer to get the output. 
+
+								  
+								</p>
+								 
+								<p  style="color:black;font-size:18px;"> 
+									
+									 So to sum up we can think of this as , <b>&sigma;(z)</b> in the white neuron was carrying some error and this error was forward propogated to the final layer. 
+									 The error in the final layer is calculated using the equation 1 (This final error has been effected by the previous errors) .
+									  Now we use this error and calculate the weighted sum in the opposite direction that is towards the (l-1) layer. But to get the error present inside the white neuron of the (l-1)<sup>th</sup> layer
+									  we mutiply the backward propogated weighted error sum with <b>&sigma;'(z)</b> of that white neuron. 
+									  We consider the first derivative as the rate of change of this activation is with respect to the previous weighted sum in the feed forward process and this is where the actual error of the white neuron exists.
+									 Thus the error <b>&delta;</b> in the white neuron is given by:
+
+									  <h1 class="lowercase" style="color:black;font-size:30px;text-align:center;">  &delta; = &sigma;'(z) &odot; (w1 * &delta;<sub>1</sub><sup>final_layer</sup> + w2 * &delta;<sub>2</sub><sup>final_layer</sup>)  </h1>
+								  
+								</p>
+
+								<p  style="color:black;font-size:18px;"> 
+									
+									We saw how the error <b>&delta;</b> is calculated for one of the neuron (white neuron) in the <b>final-1<sup>th</sup></b> layer of the
+									network. We can implement the same process for the other neurons in the same layer and then contunie this propogation to the previous 
+									layers , thus finding out all <b>&delta;</b> values of every neuron in the network. Now consider the final equation in the matrix form: 
+
+									<h1 class="lowercase" style="color:black;font-size:30px;text-align:center;">  &delta;<sup>L</sup> = ((w<sup>l+1</sup>)<sup>T</sup> &delta;<sup>l+1</sup>) &odot; &sigma;'(z<sup>L</sup>)   </h1>
+
+								</p>
+
+								<p  style="color:black;font-size:18px;"> 
+									
+									In this final equation we have the matrix multiplication between the weights and the errors. The matrix multiplication is used 
+									for the weighted sum of the errors and finally the hadamard product is for the elementwise product between the weighted sum and <b>&sigma;'(z)</b>
+									for every neuron in the corresponding (l),(l-1), (l-2) ... layers as the error propogates. When we apply transpose of the weight matrix <b>(w<sup>(l+1)</sup>)<sup>T</sup></b>
+									we can think of this intuitively as moving the error backward through the network , giving us some measure of error at the out of the previous (l<sup>th</sup>) layer.
+									This concludes the second equation. Both first and second equation have to be used together to calculate all the errors <b>&delta;</b> inside of every neuron in the network.
+									Figure 7 provides us the reason why we use the transpose of the weight matrix to propogate the error. 
+									Again if you get stuck someplace get a pen and paper and start scribling the equations , it really helps.
+
+								  
+								</p>
+
+								<div>
+									
+									<img  class="center" ALIGN="bottom" alt="Why matrix transpose in backpropogation"  src="images/post1/matrix-transpose.jpg" width="800" height="500"  style="border:5px solid black">
+							        <p style="text-align: center;font-size:15px;">Figure 7: Why matrix transpose in backpropogation</p>
+								    
+								</div> 
+
+								<!--************************************************END OF EQUATION TWO***************************************************************-->
+								
+
+								<!--************************************************START OF EQUATION THREE***************************************************************-->
+								
+                                <h1 class="both" style="color:black;font-size:40px;">3. &nbsp; &part; C/&part; b<sup>l</sup><sub>j</sub> = &delta; <sup>l</sup><sub>j</sub></h1>
+
+
+
+
+
+
+
 							</section>
 
 
