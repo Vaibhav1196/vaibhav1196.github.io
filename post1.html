@@ -109,10 +109,8 @@
 								 Futher this error propogates through the rest of the network as it effects the activation <b>'&sigma;'</b> as shown in the figure and eventually effects the output <b>'a<sup>L</sup>'</b>. Since we know that the <b>Cost 'C'</b> is completely dependent on <b>'a<sup>L</sup>'</b> in the final layer 
 								, the term that would be interesting for us is the partial derivative <b>&part;C/&part;z<sub>j</sub><sup>l</sup></b> which tells us the rate of change of the Cost function with respect to the weighted sum <b>'z'</b> which includes the incoming weights <b>'w'</b> and bias <b>'b'</b> of the neuron.
 								Thus if we can somehow get to know the partial derivative <b>&part;C/&part;w<sub>jk</sub><sup>l</sup></b> at the <b>'j<sup>th</sup>'</b> neuron in the <b>'l<sup>th</sup>'</b> layer , this will give 
-								us information on how the cost function is changing with respect to a wight <b>'w'</b> in some random neuron in the network. <b>Finally this can be used to modify the weights in our network and thus allowing us to modify the <b>'&delta;<sub>j</sub><sup>l</sup>'</b>' value with a motto of reducing the Cost function.
+								us information on how the cost function is changing with respect to a wight <b>'w'</b> in some random neuron in the network. Finally this can be used to modify the weights in our network and thus allowing us to modify the <b>'&delta;<sub>j</sub><sup>l</sup>'</b> value with a motto of reducing the Cost function.
 								This was a fast recap of the essentials before we start discussing about each equations and this sets the stage for futher discussions. The gif below shows the pictorial recap of the working of backpropogation.
-							   
-								</b>
 								Since we have set the stage for our article now we can finally start appreciating the math and have a natuarl understanding of the four equations in figure 1.
 								</p>
 
