@@ -12,20 +12,31 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
-	<body class="is-preload">
+	
 
-
-
-		
-		.TextWrapLeft
-        {
-			clear: left.
-			float: left;
-			margin: 10px;
+  
+		<head>
+        <style>
+			.floatleft
+		{
+		float: left;
+		width: 100px;
 		}
 
+		.center 
+		{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+        }
+		
+		</style>
+		</head>
 
-
+		<body class="is-preload"></body>
+		
+		
 		<!-- Wrapper -->
 			<div id="wrapper">
 
@@ -50,47 +61,68 @@
 										in order to appreciate this post.</p>
 									
 								</header>
+
+
 								<div>
-									<img style="margin: 5px 20px 0 0;" ALIGN="left" src="images/post1/The-four-horsemen.png"  width="400" height="400"  style="border:5px solid black"/>
+									
+									<img style="margin: 5px 20px 0 0;" ALIGN="left" src="images/post1/The-four-Horsemen.png"  width="400" height="400"  style="border:5px solid black"/>
+									
+									
 								</div> 
 
 								<p  style="color:black;font-size:18px;"> 
 									
-									The structure of the equations shown in the figure (for example: using the Hadamard product instead of Matrix multiplication)
+									The structure of the equations shown in figure 1 (for example: using the Hadamard product instead of Matrix multiplication)
 									is inspired from the book "Neural Networks and Deeplearning" by "Michael Nielsen". 
 									This book is highly recommended if one is looking for a mathematically intensive approach to the topic. In this article we will not dive into the 
 									backpropogation algorithm itself but try and understand the relevence of these equations and how certain terms appear in them. This post can be used as a 
 									supplement while understanding backpropogation or like a cheatsheet if one has understood the mathematical view point of this algorithm.
-									Before going into the discussion of each equation we will quickly establish what each term in the set of four equations mean considering a pictorial representation of DNN. 
+									Before discussing about each equation we will quickly establish what each term in the set of four equations mean; considering a pictorial representation of a Deep Neural Network (DNN). 
 								</p>
 
 
 
 								<div>
+									
 									<img style="margin: 0 0 5px 20px;" ALIGN="right"  src="images/post1/DNN.png"  width="500" height="375"  style="border:5px solid black"/>
+								
 								</div> 
 								
+
 								<p  style="color:black;font-size:18px;"> 
 									
-									The figure on the right having the configuration of 3-4-2 DNN structure depicts the various terms in the network. <b>'w'</b> is the weight arriving to the corresponding neuron.
-									The weight 'w' is moving to the <b>'j<sup>th</sup>'</b> neuron in the <b>'l<sup>th</sup>'</b> layer from the <b>'k<sup>th</sup>'</b> neuron in the <b>'(l-1)<sup>th</sup>'</b> layer The weighted sum at a neuron in layer <b>'l'</b> with bias <b>'b'</b> is represented by <b>'z'</b>.
+									Figure 2 on the right with the configuration of 3-4-2 DNN structure depicts the various terms in the network. <b>'w'</b> is the weight arriving to the corresponding neuron.
+									The weight 'w' is moving to the <b>'j<sup>th</sup>'</b> neuron in the <b>'l<sup>th</sup>'</b> layer from the <b>'k<sup>th</sup>'</b> neuron in the <b>'(l-1)<sup>th</sup>'</b> layer. The weighted sum at a neuron in layer <b>'l'</b> with bias <b>'b'</b> is represented by <b>'z'</b>.
 									 A point to remember here is that the bias <b>'b'</b> is local to a neuron while the weights <b>'w'</b> are not. The activation function is represented by <b>'&sigma;'</b> and the activation function of a neuron is given by <b>'&sigma;(z)'</b>.
-									Here the output of the activation is represented by <b>'a'</b> , that is <b>'&sigma;(z) = a'</b>.   
+									Here the output of the activation is represented by <b>'a'</b> , that is <b>&sigma;(z) = a</b>.   
 								</p>
 								<p  style="color:black;font-size:18px;"> 
 									
-									The <b>Cost function C</b> considered here is given by the quadratic function as shown in the figure. Here <b>'a<sub>j</sub><sup>L</sup>'</b> is the final prediction at the 'L<sup>th</sup>' layer and the <b>'j<sup>th</sup>'</b> neuron.
-									 and <b>'y<sub>j</sub>'</b> is the ground truth at the <b>j<sup>th</sup></b> output neuron of the input data point. Here an important point to note is that the ground truth is constant thus the cost C is purely a function of <b>'a<sup>L</sup>'</b> , <b>Cost C = C(a<sup>L</sup>)</b>. 
+									The <b>Cost function C</b> considered here is given by the quadratic equation as shown in the figure. Here <b>'a<sub>j</sub><sup>L</sup>'</b> is the final prediction at the <b>'L<sup>th</sup>'</b> layer and the <b>'j<sup>th</sup>'</b> neuron.
+									 and <b>'y<sub>j</sub>'</b> is the ground truth at the <b>'j<sup>th</sup>'</b> output neuron of the input data point. Here an important point to note is that the ground truth is constant thus the cost C is purely a function of <b>'a<sup>L</sup>'</b> , <b>Cost C = C(a<sup>L</sup>)</b>. 
 								</p>
 								
                                 <p  style="color:black;font-size:18px;"> 
 							   
 									Now we will consider the most important term that we are interested in '<b>&delta;'</b>. Here consider the neuron marked in light pink , the blue arrows indicate the incoming weights <b>'w'</b> to the neuron while the red arrows indicate the outgoing activation terms <b>'a'</b>.
 								 When the weighted sum <b>'z'</b> with the incoming blue weights <b>'w'</b> along with the bias <b>'b'</b> in the neuron is computed it induces an error <b>'&delta;<sub>j</sub><sup>l</sup>'</b>' ; at the <b>'j<sup>th</sup></b>' neuron and the <b>'l<sup>th</sup>'</b> layer. 
-								 Futher this error propogates through the rest of the network as it effects the activation <b>'&sigma;'</b> as shown in the figure and effects the output <b>'a<sup>L</sup>'</b>. Since se know that the <b>Cost 'C'</b> is completely dependent on <b>'a<sup>L</sup>'</b> in the final layer 
+								 Futher this error propogates through the rest of the network as it effects the activation <b>'&sigma;'</b> as shown in the figure and eventually effects the output <b>'a<sup>L</sup>'</b>. Since we know that the <b>Cost 'C'</b> is completely dependent on <b>'a<sup>L</sup>'</b> in the final layer 
 								, the term that would be interesting for us is the partial derivative <b>&part;C/&part;z<sub>j</sub><sup>l</sup></b> which tells us the rate of change of the Cost function with respect to the weighted sum <b>'z'</b> which includes the incoming weights <b>'w'</b> and bias <b>'b'</b> of the neuron.
-							 
+								Thus if we can somehow get to know the partial derivative <b>&part;C/&part;w<sub>jk</sub><sup>l</sup></b> at the <b>'j<sup>th</sup>'</b> neuron in the <b>'l<sup>th</sup>'</b> , this will give 
+								us information on how the cost function is changing with respect to a wight <b>'w'</b> in some random neuron in the network. <b>Finally this can be used to modify the weights in our network and thus allowing us to modify the <b>'&delta;<sub>j</sub><sup>l</sup>'</b>' value with a motto of reducing the Cost function.
+								This was a fast recap of the essentials before we start discussing about each equations and this sets the stage for futher discussions. The gif below shows the pictorial recap of the working of backpropogation.
+							   
+								</b>
+								Since we have set the stage for our article now we can finally start appreciating the math and have a natuarl understanding of the four equations in figure 1.
 								</p>
+
+								<div>
+									
+									<img  class="center" ALIGN="bottom" alt="Backpropogation gif example"  src="images/post1/backpropogation.gif"  style="border:5px solid black">
+							        <p style="text-align: center;font-size:15px;">Figure 3: Backpropogation working gif</p>
+								    
+								</div> 
+
 
 								
 							</section>
