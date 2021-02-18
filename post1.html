@@ -152,7 +152,7 @@
 								     <!--************************************************START OF EQUATION ONE***************************************************************-->
 
 								
-									<h1 class="lowercase" style="color:black;font-size:40px;" > 1) &delta;<sup>L</sup> = &nabla;<sub>a</sub>C &odot; &sigma;'(z<sup>L</sup>) </h2>
+									<h1 class="lowercase" style="color:black;font-size:40px;">1. &nbsp; &delta;<sup>L</sup> = &nabla;<sub>a</sub>C &odot; &sigma;'(z<sup>L</sup>) </h2>
 									
 									
 									 <p style="color:black;font-size:18px;"> Now that we have set the platform to discuss about the four equations we can start with the first one which is  <b>&delta;<sup>L</sup> = &nabla;<sub>a</sub>C &odot; &sigma;'(z<sup>L</sup>)</b>.
@@ -196,14 +196,14 @@
 
 								<p  class="newspace"style="color:black;font-size:18px;"> 
 
-									<b>1)   How fast the the cost 'C' is changing as a function of the activated output 'a'. If the Cost 'C' does not depend on a particular
+									<b>1.   How fast the the cost 'C' is changing as a function of the activated output 'a'. If the Cost 'C' does not depend on a particular
 										output of a neuron 'j' then its '&delta;<sup>l</sup>j<sub></sub>' will be small.
 									</b>
 								</p>
 
 								<p  style="color:black;font-size:18px;"> 
 									
-									<b>2)   How fast the activation function '&sigma;' is changing with respect to its input weighted sum 'z<sup>l</sup><sub>j</sub>'.
+									<b>2.   How fast the activation function '&sigma;' is changing with respect to its input weighted sum 'z<sup>l</sup><sub>j</sub>'.
 									</b>
 								</p>
 
@@ -240,8 +240,10 @@
 
 								<p  style="color:black;font-size:18px;"> 
 									
-									An important thing to remember is that , this equation is used to get the error <b>&delta;<sup>L</sup></b> in the forward direction. That is this is the feed forward part 
-									of our algorithm where we see how the error is propogated to the end layer eventually affecting the output prediction. In the next equation we will check out the backpropogation of the error.
+									An important point to remember is that , this equation is used to get the error <b>&delta;<sup>L</sup></b> in the forward direction. This is the feed forward part 
+									of our algorithm where we see how the error is propogated to the end layer eventually affecting the output prediction. Thus the <b>&delta;<sup>L</sup></b> calculated here is the error in the final layer.
+									 We will use this to calculate the errors <b>&delta;<sup>L-1,2,3..</sup></b> in the rest of the layers using the second equation. In simple terms we can think of it as , calculating 
+									 the individual layers error matrix  <b>&delta;<sup>L</sup></b>  in the backward direction.
 								</p>
 
 
@@ -251,7 +253,7 @@
 							    <!--************************************************START OF EQUATION TWO***************************************************************-->
 							
 							
-								<h1 class="both" style="color:black;font-size:40px;" > 2) &delta;<sup>L</sup> = ((w<sup>l+1</sup>)<sup>T</sup> &delta;<sup>l+1</sup>) &odot; &sigma;'(z<sup>L</sup>) </h2>
+								<h1 class="both" style="color:black;font-size:40px;">2. &nbsp; &delta;<sup>L</sup> = ((w<sup>l+1</sup>)<sup>T</sup> &delta;<sup>l+1</sup>) &odot; &sigma;'(z<sup>L</sup>) </h2>
 
 
 								
