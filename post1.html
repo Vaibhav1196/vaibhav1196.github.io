@@ -79,16 +79,16 @@
 								</p>
 								<p  style="color:black;font-size:18px;"> 
 									
-									The <b>Cost function C</b> considered here is given by the quadratic function as shown in the figure. <b>Here "a<sub>j</sub><sup>L</sup>" is the final prediction at the L<sup>th</sup> layer and the j<sup>th</sup> neuron.
-									 and y<sub>j</sub> is the ground truth at the j<sup>th</sup> output neuron of the input data point. Here an important point to note is that the ground truth is constant thus the cost C is purely a function of "a<sup>L</sup>" , Cost C = C(a<sup>L</sup>)</b>. 
+									The <b>Cost function C</b> considered here is given by the quadratic function as shown in the figure. Here <b>'a<sub>j</sub><sup>L</sup>'</b> is the final prediction at the 'L<sup>th</sup>' layer and the <b>'j<sup>th</sup>'</b> neuron.
+									 and <b>'y<sub>j</sub>'</b> is the ground truth at the <b>j<sup>th</sup></b> output neuron of the input data point. Here an important point to note is that the ground truth is constant thus the cost C is purely a function of <b>'a<sup>L</sup>'</b> , <b>Cost C = C(a<sup>L</sup>)</b>. 
 								</p>
 								
                                 <p  style="color:black;font-size:18px;"> 
 							   
-									Now we will consider the most important term that we are interested in "<b>&delta;". Here consider the neuron marked in light pink , the blue arrows indicate the incoming weights "w" to the neuron while the red arrows indicate the outgoing activation terms "a".
-								 When the weighted sum "z" with the incoming blue weights "w" along with the bias "b" in the neuron is computed it induces an error &delta;<sub>j</sub><sup>l</sup> ; at the j<sup>th</sup> neuron and the l<sup>th</sup> layer. 
-								 Futher this error propogates through the rest of the network as it effects the activation &sigma; as shown in the figure and effects the output "a<sup>L</sup>". Since se know that the Cost "C" is completely dependent on "a<sup>L</sup>" in the final layer 
-								, the term that would be interesting for us is the partial derivative "&part;C/&part;z<sub>j</sub><sup>l</sup>" which tells us the rate of change of the Cost function with respect to the weighted sum "z" which includes the incoming weights "w" and bias "b" of the neuron. </b>
+									Now we will consider the most important term that we are interested in '<b>&delta;'</b>. Here consider the neuron marked in light pink , the blue arrows indicate the incoming weights <b>'w'</b> to the neuron while the red arrows indicate the outgoing activation terms <b>'a'</b>.
+								 When the weighted sum <b>'z'</b> with the incoming blue weights <b>'w'</b> along with the bias <b>'b'</b> in the neuron is computed it induces an error <b>'&delta;<sub>j</sub><sup>l</sup>'</b>' ; at the <b>'j<sup>th</sup></b>' neuron and the <b>'l<sup>th</sup>'</b> layer. 
+								 Futher this error propogates through the rest of the network as it effects the activation <b>'&sigma;'</b> as shown in the figure and effects the output <b>'a<sup>L</sup>'</b>. Since se know that the <b>Cost 'C'</b> is completely dependent on <b>'a<sup>L</sup>'</b> in the final layer 
+								, the term that would be interesting for us is the partial derivative <b>&part;C/&part;z<sub>j</sub><sup>l</sup></b> which tells us the rate of change of the Cost function with respect to the weighted sum <b>'z'</b> which includes the incoming weights <b>'w'</b> and bias <b>'b'</b> of the neuron.
 							 
 								</p>
 
