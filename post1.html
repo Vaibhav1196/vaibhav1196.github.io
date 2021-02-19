@@ -92,12 +92,7 @@
 								</header>
 
 
-								<div>
-									
-									
-									
-									
-								</div> 
+							
 
 								<p  class="text-wrap"> 
 									
@@ -121,27 +116,31 @@
 
 
 
-								<div>
-									
-									<img style="margin: 0 0 5px 20px;" ALIGN="right"  src="images/post1/DNN.png"  width="500" height="375"  style="border:5px solid black"/>
 								
-								</div> 
 								
 
-								<p  style="color:black;font-size:18px;"> 
+								<p  class="text-wrap right"> 
+
+									<img style="margin: 0 0 5px 20px;" ALIGN="right"  src="images/post1/DNN.png"  width="500" height="375"  style="border:5px solid black"/>
+
+									<span>
 									
 									Figure 2 on the right with the configuration of 3-4-2 DNN structure depicts the various terms in the network. <b>'w'</b> is the weight arriving to the corresponding neuron.
 									The weight 'w' is moving to the <b>'j<sup>th</sup>'</b> neuron in the <b>'l<sup>th</sup>'</b> layer from the <b>'k<sup>th</sup>'</b> neuron in the <b>'(l-1)<sup>th</sup>'</b> layer. The weighted sum at a neuron in layer <b>'l'</b> with bias <b>'b'</b> is represented by <b>'z'</b>.
 									 A point to remember here is that the bias <b>'b'</b> is local to a neuron while the weights <b>'w'</b> are not. The activation function is represented by <b>'&sigma;'</b> and the activation function of a neuron is given by <b>'&sigma;(z)'</b>.
 									Here the output of the activation is represented by <b>'a'</b> , that is <b>&sigma;(z) = a</b>.   
+								
+									</span>
+									
+
 								</p>
-								<p  style="color:black;font-size:18px;"> 
+								<p> 
 									
 									The <b>Cost function C</b> considered here is given by the quadratic equation as shown in the figure. Here <b>'a<sub>j</sub><sup>L</sup>'</b> is the final prediction at the <b>'L<sup>th</sup>'</b> layer and the <b>'j<sup>th</sup>'</b> neuron.
 									 and <b>'y<sub>j</sub>'</b> is the ground truth at the <b>'j<sup>th</sup>'</b> output neuron of the input data point. Here an important point to note is that the ground truth is constant thus the cost C is purely a function of <b>'a<sup>L</sup>'</b> , <b>Cost C = C(a<sup>L</sup>)</b>. 
 								</p>
 								
-                                <p  style="color:black;font-size:18px;"> 
+                                <p> 
 							   
 									Now we will consider the most important term that we are interested in '<b>&delta;'</b>. Here consider the neuron marked in light pink , the blue arrows indicate the incoming weights <b>'w'</b> to the neuron while the red arrows indicate the outgoing activation terms <b>'a'</b>.
 								 When the weighted sum <b>'z'</b> with the incoming blue weights <b>'w'</b> along with the bias <b>'b'</b> in the neuron is computed it induces an error <b>'&delta;<sub>j</sub><sup>l</sup>'</b>' ; at the <b>'j<sup>th</sup></b>' neuron and the <b>'l<sup>th</sup>'</b> layer. 
@@ -166,24 +165,24 @@
 								     <!--************************************************START OF EQUATION ONE***************************************************************-->
 
 								
-									<h1 class="lowercase" style="color:black;font-size:40px;">1. &nbsp; &delta;<sup>L</sup> = &nabla;<sub>a</sub>C &odot; &sigma;'(z<sup>L</sup>) </h2>
+									<h1 class="lowercase" style="color:black;font-size:20px;">1. &nbsp; &delta;<sup>L</sup> = &nabla;<sub>a</sub>C &odot; &sigma;'(z<sup>L</sup>) </h2>
 									
 									
-									 <p style="color:black;font-size:18px;"> Now that we have set the platform to discuss about the four equations we can start with the first one which is  <b>&delta;<sup>L</sup> = &nabla;<sub>a</sub>C &odot; &sigma;'(z<sup>L</sup>)</b>.
+									 <p> Now that we have set the platform to discuss about the four equations we can start with the first one which is  <b>&delta;<sup>L</sup> = &nabla;<sub>a</sub>C &odot; &sigma;'(z<sup>L</sup>)</b>.
 										but before discussing this matrix format of the equation we will review the same equation but with a touch of calculus. In calculus format the above equation is given as 
 										<b>&delta;<sup>L</sup><sub>j</sub> = &part;C/&part;a<sup>L</sup><sub>j</sub> &sigma;'(z<sup>L</sup><sub>j<sub></b>). But how did we arrive at this expression ?
 										I always prefer the pen and paper approach to enlighten myself during such doubts. We will consider the pictorial representation of a DNN with the required terms as shown in figure 4 along with the pen and paper derivation.
 									</p> 
 							
 
-								<div>
-									
-									<img style="margin: 5px 20px 0 0;" ALIGN="left" src="images/post1/the-first-horsemen.png"  width="350" height="370"  style="border:5px solid black"/>
-										
-								</div> 	
+				
    
 
-								<p  style="color:black;font-size:18px;"> 
+								<p class="text-wrap"> 
+
+									<img style="margin: 5px 20px 0 0;" ALIGN="left" src="images/post1/the-first-horsemen.png"  width="350" height="370"  style="border:5px solid black"/>
+
+									<span>
 									
 									Figure 4 on the left shows a pictorial representation of a DNN with <b>N</b> layers. Now we will consider the neuron marked in light pink in layer <b>l</b>. The <b>'z<sub>j</sub><sup>l</sup>'</b> is the weighted sum of the incoming weights to the neuron
 									along with the bias in that neuron. Once we apply the activation <b>&sigma;(z<sub>j</sub><sup>l</sup>)</b> we get the output for that neuron as <b>'a<sub>j</sub><sup>l</sup>'</b>. Here l represents the layer and j the j<sup>th</sup> neuron in the corresponding layer.
@@ -192,6 +191,9 @@
 									Thus by doing this we are trying to see how an error in one neuron is affecting the final prediction as it propogates through the other layers in the forward direction , hence the partial derivative. 
 									Now using these infomation along with a pen and paper we will see why we end up getting <b>&delta;<sup>L</sup><sub>j</sub> = &part;C/&part;a<sup>L</sup><sub>j</sub> &sigma;'(z<sup>L</sup><sub>j<sub></b>).
 								  
+
+									</span>	
+								
 								</p>
 
 								<div>
@@ -201,28 +203,28 @@
 								    
 								</div> 
 
-								<p  style="color:black;font-size:18px;"> 
+								<p> 
 									
 									As shown in the old school method of pen and paper in the figure 5 we see how we arrive at the corresponding equation. Thus the error <b>&delta;<sup>l</sup>j<sub></sub></b> in the j<sup>th</sup> 
 									nueron of the l<sup>th</sup> is given by the product of: 
 								  
 								</p>
 
-								<p  class="newspace"style="color:black;font-size:18px;"> 
+								<p  class="newspace"> 
 
 									<b>1.   How fast the the cost 'C' is changing as a function of the activated output 'a'. If the Cost 'C' does not depend on a particular
 										output of a neuron 'j' then its '&delta;<sup>l</sup>j<sub></sub>' will be small.
 									</b>
 								</p>
 
-								<p  style="color:black;font-size:18px;"> 
+								<p> 
 									
-									<b>2.   How fast the activation function '&sigma;' is changing with respect to its input weighted sum 'z<sup>l</sup><sub>j</sub>'.
+									<b> &nbsp; 2.   How fast the activation function '&sigma;' is changing with respect to its input weighted sum 'z<sup>l</sup><sub>j</sub>'.
 									</b>
 								</p>
 
 								
-								<p  style="color:black;font-size:18px;"> 
+								<p> 
 									
 									From the above two points we have now understood how the error evolves as it propogates through the network and also this way of writing the equation gives a 
 									natural flow in understanding how the various terms in the equation effect the final cost function that we are interested in to minimize. Another important thing 
@@ -230,16 +232,16 @@
 									representing the above equation in matrix form.
 								</p>
 
-								<p  style="color:black;font-size:18px;"> 
+								<p> 
 									
 									As we have gained enough insight using calculus and why certain terms appear in the equation , we can now write the equation 
 								    <b>&delta;<sub>j</sub><sup>l</sup></b> in matrix form as: 
 								
-									<h1 class="lowercase" style="color:black;font-size:30px;text-align:center;"> &delta;<sup>L</sup> = &nabla;<sub>a</sub>C &odot; &sigma;'(z<sup>L</sup>) </h2>
+									<h1 class="lowercase" style="color:black;font-size:20px;text-align:center;"> &delta;<sup>L</sup> = &nabla;<sub>a</sub>C &odot; &sigma;'(z<sup>L</sup>) </h2>
 
 								</p>
 
-								<p  style="color:black;font-size:18px;"> 
+								<p> 
 									
 									Now this equation considers one layer in the DNN and represnts all the errors of that layer in a vector form , hence represented as <b>&delta;<sup>l</sup>;</b> where <b>'l'</b> represents the layer.
 									The &nabla; operator also called the nabla operator is used to represent the partial derivative of <b>'C'</b> with respect to <b>'a'</b> here. <b>&nabla;<sub>a</sub>C</b> is the rate of change of C with respect 
@@ -247,12 +249,12 @@
 									Now considering the cost function as a quadratic function as shown previously ; we can rewrite the expression <b>&nabla;<sub>a</sub>C</b> = <b>(a<sup>L</sup>-y)</b>. 
 									We get this term when we take the partial derivative of the Cost <b>C</b> with respect to <b>a</b> (<b>&part;C/&part;a</b>). Thus we can rewrite the equation for <b>&delta;<sub>j</sub><sup>l</sup></b> as:
 
-									<h1 class="lowercase" style="color:black;font-size:30px;text-align:center;"> &delta;<sup>L</sup> = (a<sup>L</sup>-y) &odot; &sigma;'(z<sup>L</sup>) </h2>
+									<h1 class="lowercase" style="color:black;font-size:20px;text-align:center;"> &delta;<sup>L</sup> = (a<sup>L</sup>-y) &odot; &sigma;'(z<sup>L</sup>) </h2>
 
 								</p>
 
 
-								<p  style="color:black;font-size:18px;"> 
+								<p> 
 									
 									An important point to remember is that , this equation is used to get the error <b>&delta;<sup>L</sup></b> in the forward direction. This is the feed forward part 
 									of our algorithm where we see how the error is propogated to the end layer eventually affecting the output prediction. Thus the <b>&delta;<sup>L</sup></b> calculated here is the error in the final layer.
@@ -267,9 +269,9 @@
 							    <!--************************************************START OF EQUATION TWO***************************************************************-->
 							
 							
-								<h1 class="both" style="color:black;font-size:40px;">2. &nbsp; &delta;<sup>L</sup> = ((w<sup>l+1</sup>)<sup>T</sup> &delta;<sup>l+1</sup>) &odot; &sigma;'(z<sup>L</sup>) </h1>
+								<h1 class="both" style="color:black;font-size:18px;">2. &nbsp; &delta;<sup>L</sup> = ((w<sup>l+1</sup>)<sup>T</sup> &delta;<sup>l+1</sup>) &odot; &sigma;'(z<sup>L</sup>) </h1>
 
-									<p  style="color:black;font-size:18px;"> 
+									<p> 
 									
 										The second equation which is stated above is used to propogate the error from layer l to layer (l-1). This means that equation 1 allowed us to calculate 
 										only the error <b>&delta;<sup>L</sup></b> of the final layer. Equation 1 alone cannot be used to find out the <b>&delta;<sup>L</sup></b> of the 
@@ -277,16 +279,17 @@
 										backwards according to the above stated second equation. 
 									</p>
 								
-									<div>
-									
-										<img style="margin: 5px 20px 0 0;" ALIGN="left" src="images/post1/error-backpropogation.png"  width="550" height="450"  style="border:5px solid black"/>
-											
-									</div> 	
-
+			
 
 									
-								<p  style="color:black;font-size:18px;"> 
+			     					<p class="text-wrap"> 
+
+
+
+									<img style="margin: 5px 20px 0 0;" ALIGN="left" src="images/post1/error-backpropogation.png"  width="550" height="450"  style="border:5px solid black"/>
 									
+                                    <span>
+
 									First we will understand the 2nd equation using Figure 6 on the left. As we can see the two red neurons are the neurons in the final layer.
 									<b>&delta;<sub>1</sub><sup>final_layer</sup> and &delta;<sub>2</sub><sup>final_layer</sup></b>  are the errors that we have calculated using equation 1 .
 									Now we have to calculate the errors in the previous layer (l-1) (blue layer in the figure.) Consider the white color neuron in the (l-1)<sup>th</sup> blue 
@@ -294,21 +297,27 @@
 									Remeber that the <b>Weights 'W'</b> in the network are unaltered and they remain the same from the previous step of equation 1 . <b>&sigma;(z<sup>L</sup>)</b> is the previously 
 									claculated activation for the white neuron in its corresponding layer.
 
+									</span>
 								  
-								</p>
+				     				</p>
 
-								<p  style="color:black;font-size:18px;"> 
+					
+					
+					
+									<p> 
 									
 									Now that we have established what all the necessary terms mean in the figure 6 we can proceed to understand the back propogation of error.
 									Consider the weighted sum of the error <b>&delta;<sub>1</sub><sup>final_layer</sup> , &delta;<sub>2</sub><sup>final_layer</sup></b> and the 
 									two weights (marked in the red connection between the final layer 'l' and the white neuron in layer '(l-1)'. The weighted sum of the error is given by the following equation:
 									
 									
-									<h1 class="lowercase" style="color:black;font-size:30px;text-align:center;"> w1 * &delta;<sub>1</sub><sup>final_layer</sup> + w2 * &delta;<sub>2</sub><sup>final_layer</sup>  </h1>
+									<h1 class="lowercase" style="color:black;font-size:15px;text-align:center;"> w1 * &delta;<sub>1</sub><sup>final_layer</sup> + w2 * &delta;<sub>2</sub><sup>final_layer</sup>  </h1>
 								  
-								</p>
+								    </p>
 
-								<p  style="color:black;font-size:18px;"> 
+								
+								
+									<p> 
 									
 									From the above equation we see that , we are using both &delta;<sub>1</sub><sup>final_layer</sup> and &delta;<sub>2</sub><sup>final_layer</sup> as inputs 
 									to the previous layer by computing the weighted sum . Now that we have calculated the weighted sum of error for the white neuron we need one more term to help us compute
@@ -316,9 +325,10 @@
 									 Remember this <b>&sigma;(z)</b> was the input to the feed forward part of the final layer to get the output. 
 
 								  
-								</p>
+								    </p>
 								 
-								<p  style="color:black;font-size:18px;"> 
+								
+									<p> 
 									
 									 So to sum up we can think of this as , <b>&sigma;(z)</b> in the white neuron was carrying some error and this error was forward propogated to the final layer. 
 									 The error in the final layer is calculated using the equation 1 (This final error has been effected by the previous errors) .
@@ -327,21 +337,21 @@
 									  We consider the first derivative as the rate of change of this activation is with respect to the previous weighted sum in the feed forward process and this is where the actual error of the white neuron exists.
 									 Thus the error <b>&delta;</b> in the white neuron is given by:
 
-									  <h1 class="lowercase" style="color:black;font-size:30px;text-align:center;">  &delta; = &sigma;'(z) &odot; (w1 * &delta;<sub>1</sub><sup>final_layer</sup> + w2 * &delta;<sub>2</sub><sup>final_layer</sup>)  </h1>
+									  <h1 class="lowercase" style="color:black;font-size:20px;text-align:center;">  &delta; = &sigma;'(z) &odot; (w1 * &delta;<sub>1</sub><sup>final_layer</sup> + w2 * &delta;<sub>2</sub><sup>final_layer</sup>)  </h1>
 								  
-								</p>
+								    </p>
 
-								<p  style="color:black;font-size:18px;"> 
+								    <p> 
 									
 									We saw how the error <b>&delta;</b> is calculated for one of the neuron (white neuron) in the <b>final-1<sup>th</sup></b> layer of the
 									network. We can implement the same process for the other neurons in the same layer and then contunie this propogation to the previous 
 									layers , thus finding out all <b>&delta;</b> values of every neuron in the network. Now consider the final equation in the matrix form: 
 
-									<h1 class="lowercase" style="color:black;font-size:30px;text-align:center;">  &delta;<sup>L</sup> = ((w<sup>l+1</sup>)<sup>T</sup> &delta;<sup>l+1</sup>) &odot; &sigma;'(z<sup>L</sup>)   </h1>
+									<h1 class="lowercase" style="color:black;font-size:20px;text-align:center;">  &delta;<sup>L</sup> = ((w<sup>l+1</sup>)<sup>T</sup> &delta;<sup>l+1</sup>) &odot; &sigma;'(z<sup>L</sup>)   </h1>
 
-								</p>
+								    </p>
 
-								<p  style="color:black;font-size:18px;"> 
+								    <p> 
 									
 									In this final equation we have the matrix multiplication between the weights and the errors. The matrix multiplication is used 
 									for the weighted sum of the errors and finally the hadamard product is for the elementwise product between the weighted sum and <b>&sigma;'(z)</b>
@@ -352,7 +362,7 @@
 									Again if you get stuck someplace get a pen and paper and start scribling the equations , it really helps.
 
 								  
-								</p>
+								    </p>
 
 								<div>
 									
@@ -366,18 +376,18 @@
 
 								<!--************************************************START OF EQUATION THREE***************************************************************-->
 								
-                                <h1 class="both" style="color:black;font-size:40px;">3. &nbsp; &part; C/&part; b<sup>l</sup><sub>j</sub> = &delta; <sup>l</sup><sub>j</sub></h1>
+                                <h1 class="both" style="color:black;font-size:20px;">3. &nbsp; &part; C/&part; b<sup>l</sup><sub>j</sub> = &delta; <sup>l</sup><sub>j</sub></h1>
 
-                                <p  style="color:black;font-size:18px;"> 
+                                <p> 
 									
 									This is a pretty straight forward expression. As mentioned earlier , the bias term is local to each neuron in their corresponding
 									layers. So the rate of change of the cost function with respect to the bias is directly linked to the localized error within that neuron.
 									From the previous two equations we have understood on how to compute <b>&delta;</b> for every neuron. We can simply write this equation as:
 
-									<h1 class="lowercase" style="color:black;font-size:30px;text-align:center;"> &part; C/&part; b = &delta;  </h1>
+									<h1 class="lowercase" style="color:black;font-size:20px;text-align:center;"> &part; C/&part; b = &delta;  </h1>
 								</p>
 
-								<p  style="color:black;font-size:18px;"> 
+								<p> 
 									
 									It is understood from the above equation that we compute <b>&delta;</b> for the same neuron as the bias <b>'b'</b>.
 								</p>
@@ -389,18 +399,17 @@
 								<!--************************************************START OF EQUATION FOUR***************************************************************-->
 
 								 
-								<h1 class="both" style="color:black;font-size:40px;">4. &nbsp; &part; C/&part; w<sup>l</sup><sub>jk</sub> = a<sup>l-1</sup><sub>k</sub> &delta;<sup>l</sup><sub>j</sub></h1>
+								<h1 class="both" style="color:black;font-size:20px;">4. &nbsp; &part; C/&part; w<sup>l</sup><sub>jk</sub> = a<sup>l-1</sup><sub>k</sub> &delta;<sup>l</sup><sub>j</sub></h1>
 
 
 
 
-								<p  style="color:black;font-size:18px;"> 
+								<p> 
 									
 									
 								Finally this is what we are interested in , that is the rate of change of the cost C with respect to any weight in the network. Looking at the RHS of the equation ; we now 
 								know both the terms to calculate <b>' &part; C/&part; w<sup>l</sup><sub>jk</sub>'</b>. But to have an intuitive understanding of this expression consider figure 8.
 
-								  
 								</p>
 
 								<div>
@@ -411,7 +420,7 @@
 								</div> 
 
 
-								<p  style="color:black;font-size:18px;"> 
+								<p> 
 									
 								We see that there are 2 neurons interconnected in figure 8 and this can be between any layer. Finally the rate of change of cost function at the output with respect 
 								to the weight that exists between these two neurons is given by the product of the previous activation term <b>a</b> and the error <b>&delta;</b> induced in the neuron towards 
@@ -421,9 +430,9 @@
 	
                             <!--************************************************END OF EQUATION FOUR***************************************************************-->
 
-							<h1 class="both" style="color:black;font-size:40px;">5. &nbsp; INSIGHTS </h1> 
+							<h1 class="both" style="color:black;font-size:20px;">5. &nbsp; INSIGHTS </h1> 
 							
-							<p  style="color:black;font-size:18px;"> 
+							<p> 
 									
 								<b>1.</b> &nbsp If <b>'a'</b> is close to 0 then the gradient term <b>&part; C/&part; w </b> will also be small. In this case we say that the weights learn slowly.
 								   This means that weights outputed from low activation neurons learn slowly.
@@ -437,7 +446,7 @@
 								
 							</div> 
 
-							<p  style="color:black;font-size:18px;"> 
+							<p> 
 									
 								<b>2.</b> &nbsp Consider the standard activation function ; the sigmoid function as shown in figure 9. The sigmoid function becomes flat when 
 												<b>&sigma;(z<sup>L</sup><sub>j</sub>)</b> is approximately 0 or 1. When this happens we will have <b>&sigma;'(z<sup>L</sup><sub>j</sub>) = 0</b>.

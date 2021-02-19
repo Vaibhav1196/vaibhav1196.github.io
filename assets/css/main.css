@@ -3821,7 +3821,7 @@ input, select, textarea {
 					}
 
 					#main > .post header.major > h1, #main > .post header.major h2 {
-						font-size: 2.5rem;
+						font-size: 2.1rem;
 						line-height: 1.2;
 						margin: 0 0 1.5rem 0;
 					}
@@ -4695,8 +4695,23 @@ input, select, textarea {
 
 	.text-wrap img{
       
-     float:left
+	 float:left
+	 
+	}
 
 
+	.text-wrap.right img{
+      
+		float:right
+		
+	   }
 
+	@media screen and (max-width: 786px){
+
+		.text-wrap img,
+		.text-wrap.right img {
+			
+			width: 100%;
+			height: auto;
+		}
 	}
