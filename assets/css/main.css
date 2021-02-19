@@ -4708,6 +4708,7 @@ input, select, textarea {
 
 	@media screen and (max-width: 786px){
 
+        .below img,
 		.text-wrap img,
 		.text-wrap.right img {
 			
