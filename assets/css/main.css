@@ -1547,45 +1547,6 @@ input, select, textarea {
 
 
 
-        @media only screen and (max-width: 600px) {
-			figure.alignleft, img.alignleft, figure.alignright, img.alignright {
-			float:none;
-			display:block;
-			margin-left:auto;
-			margin-right:auto;
-			}
-		}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 		@media screen and (max-width: 480px) {
 
 			.row {
